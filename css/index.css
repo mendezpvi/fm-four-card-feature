@@ -1,0 +1,195 @@
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  min-block-size: 100vh;
+  min-block-size: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--ff-popp), sans-serif;
+  text-align: center;
+  background-color: var(--very-light-gray);
+  color: var(--very-dark-blue);
+}
+
+:root {
+  --red: hsl(0, 78%, 62%);
+  --cyan: hsl(180, 62%, 55%);
+  --orange: hsl(34, 97%, 64%);
+  --blue: hsl(212, 86%, 64%);
+  --very-dark-blue: hsl(232, 12%, 34%);
+  --grayish-blue: hsl(229, 6%, 66%);
+  --very-light-gray: hsl(0, 0%, 98%);
+  --ff-popp: 'Poppins';
+}
+
+.fw-200 {
+  font-weight: 200;
+}
+.fw-400 {
+  font-weight: 400;
+}
+.fw-600 {
+  font-weight: 600;
+}
+.fs-xs {
+  font-size: 0.82rem;
+}
+.fs-s {
+  font-size: .95rem;
+}
+.fs-m {
+  font-size: 1.23rem;
+}
+.fs-l {
+  font-size: clamp(24px, 1rem + 2.1vw, 2.28rem);
+}
+
+.container {
+  margin: 5.3rem auto 0;
+  inline-size: 83vw;
+}
+.title {
+  margin: 0 auto;
+  max-inline-size: 25ch;
+  line-height: 1.55;
+}
+.description {
+  margin: .85rem auto;
+  max-inline-size: 55ch;
+  line-height: 1.65;
+}
+
+.card-wrapper {
+  max-inline-size: 1110px;
+  margin: 4.6rem auto 0;
+  display: grid;
+  justify-items: center;
+  gap: 1.55rem;
+}
+.card {
+  max-inline-size: 350px;
+  padding: .75rem 1.7rem 1.75rem 1.9rem;
+  box-shadow: 0 15px 30px -11px hsl(213, 47%, 67%, .5);
+  text-align: left;
+  border-top: 4px solid;
+  border-radius: .5rem;
+}
+.supervisor {
+  border-color: var(--cyan);
+}
+.team {
+  border-color: var(--red);
+}
+.karma {
+  border-color: var(--orange);
+}
+.calculator {
+  border-color: var(--blue);
+}
+
+.card__title {
+  margin-bottom: 0;
+}
+.card__description {
+  margin-top: .55rem;
+  line-height: 1.75;
+}
+.card__icon {
+  display: block;
+  margin-top: 1.9rem;
+  margin-left: auto;
+  inline-size: clamp(57px, 22.6%, 64px);
+}
+
+
+.attribution {
+  padding: 2rem 0;
+  font-size: .8rem;
+  font-weight: 400;
+}
+.attribution__cta {
+  margin-inline: .15rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+@media (width >= 768px) {
+  .card-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (width >= 1366px) {
+  .container {
+    margin-top: 5.1rem;
+  }
+  .title {
+    line-height: 1.4;
+  }
+  .description {
+    margin-top: 1rem;
+  }
+  .card-wrapper {
+    margin-top: 3.9rem;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1.85rem;
+    column-gap: 1.9rem;
+  }
+  .card {
+    padding: 1rem 2rem 2rem;
+  }
+  .card__description {
+    margin-top: .8rem;
+    line-height: 1.8;
+  }
+  .card__icon {
+    margin-top: 2.35rem;
+  }
+  .karma {
+    grid-column: 2/3;
+  }
+  .supervisor {
+    position: relative;
+    transform: translateY(56%);
+  }
+  .calculator {
+    position: relative;
+    transform: translateY(-56%);
+  }
+}
+
+
+.attribution__cta::after {
+  content: '';
+  position: absolute;
+  bottom: -.15rem;
+  left: 0;
+  inline-size: 100%;
+  block-size: .11rem;
+  background-color: currentColor;
+  transform: scale(1);
+  transition: transform .3s ease;
+}
+
+*:focus-visible {
+  outline: .15rem dotted currentColor;
+  outline-offset: .15rem;
+}
+
+@media (hover:hover) {
+  .attribution__cta:hover::after {
+    transform: scale(0);
+  }
+}
+
+.attribution__cta:focus-visible::after {
+  transform: scale(0);
+}
